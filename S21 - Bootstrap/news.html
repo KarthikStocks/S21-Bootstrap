@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Market News</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet noopener noreferrer"
+    />
+    <style>
+      /* New color scheme */
+      .navbar {
+        background-color: #28a745; /* Green */
+      }
+
+      .navbar-brand,
+      .navbar-nav .nav-link {
+        color: white !important;
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: #f8f9fa !important;
+      }
+
+      header {
+        background-color: #343a40; /* Dark Gray */
+        color: white;
+        text-align: center;
+        padding: 3rem 0;
+      }
+
+      .news-item {
+        background-color: #f8f9fa;
+        border: 1px solid #e0e0e0;
+        border-radius: 0.5rem;
+        margin-bottom: 1.5rem;
+        padding: 1.5rem;
+      }
+
+      .news-item h5 {
+        font-size: 1.25rem;
+        color: #28a745;
+      }
+
+      .news-item p {
+        font-size: 1rem;
+        color: #343a40;
+      }
+
+      .news-item small {
+        color: #6c757d;
+      }
+
+      footer {
+        background-color: #343a40;
+        color: white;
+        text-align: center;
+        padding: 1.5rem 0;
+      }
+    </style>
+  </head>
+  <body style="background-color: snow">
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >Home</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="indianMarket.html">Indian Market</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <h1>Stock Market News</h1>
+      <p>Latest updates on stock market trends and events</p>
+    </header>
+
+    <!-- News Section -->
+    <section class="container my-5">
+      <h2>Latest Stock Market News</h2>
+
+      <!-- News Items -->
+      <div class="news-item">
+        <h5>Stock Market Hits Record High</h5>
+        <p>
+          The stock market has recently reached new record highs with
+          significant growth in major indices.
+        </p>
+        <small>November 10, 2024</small>
+      </div>
+
+      <div class="news-item">
+        <h5>Tech Stocks Continue to Outperform</h5>
+        <p>
+          Tech stocks such as Apple, Google, and Microsoft are leading the
+          charge in market growth.
+        </p>
+        <small>November 9, 2024</small>
+      </div>
+
+      <div class="news-item">
+        <h5>Market Volatility Expected to Increase</h5>
+        <p>
+          Experts predict increased volatility in the coming months due to
+          global economic uncertainties.
+        </p>
+        <small>November 8, 2024</small>
+      </div>
+
+      <div class="news-item">
+        <h5>October SIPs Reach ₹25,323 Crore, Accounts Cross 10 Crore</h5>
+        <p>
+          The total value of SIPs rose to an all-time high of Rs 25,323 crore in
+          Oct (vs Rs 24,509 crore in Sept). Number of SIP accounts rose to 10.12
+          crore in Oct (vs 9.87 crore in Sept): AMFI.
+        </p>
+        <small>November 7, 2024</small>
+      </div>
+
+      <div class="news-item">
+        <h5>EPFO Contributors Up 6.6%, Employees Reach 7.37 Crore</h5>
+        <p>
+          The number of contributing organizations to EPFO rose 6.6%
+          year-on-year to 7.66 lakh, and the number of contributing employees
+          rose 7.6% to 7.37 crore in 2023-24.
+        </p>
+        <small>November 6, 2024</small>
+      </div>
+
+      <!-- Add more news items as necessary -->
+    </section>
+
+    <!-- News Section with Carousel for Less Scrolling -->
+    <section class="news-section py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Stocks Updates</h2>
+        <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <!-- News Item 1 -->
+            <div class="carousel-item active">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Tech Stocks Surge</h5>
+                  <p class="card-text">
+                    The tech sector sees a surge in market activity as earnings
+                    exceed expectations.
+                  </p>
+                  <a
+                    href="#"
+                    class="btn btn-link"
+                    data-bs-toggle="modal"
+                    data-bs-target="#newsModal1"
+                    >Next</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- News Item 2 -->
+            <div class="carousel-item">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Tesla’s New EV Plans</h5>
+                  <p class="card-text">
+                    Tesla reveals ambitious plans to launch new electric vehicle
+                    models in the coming year.
+                  </p>
+                  <a
+                    href="#"
+                    class="btn btn-link"
+                    data-bs-toggle="modal"
+                    data-bs-target="#newsModal2"
+                    >Next</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">ONGC</h5>
+                  <p class="card-text">
+                    Reported a 25% year-on-year fall in net profit to Rs
+                    10,272.50 crore in the July-Sept quarter. Dividend declared:
+                    Rs 6 per share. Record date: 20 November. Crude oil prices
+                    fell below $70 during the quarter, for the first time since
+                    Dec 2021.
+                  </p>
+                  <a
+                    href="#"
+                    class="btn btn-link"
+                    data-bs-toggle="modal"
+                    data-bs-target="#newsModal2"
+                    >Next</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Hindalco</h5>
+                  <p class="card-text">
+                    Reported a 78% year-on-year rise in net profit to Rs 3,909
+                    crore in the July-Sept quarter.
+                  </p>
+                  <a
+                    href="#"
+                    class="btn btn-link"
+                    data-bs-toggle="modal"
+                    data-bs-target="#newsModal2"
+                    >Next</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Britannia</h5>
+                  <p class="card-text">
+                    Reported a 9.55% year-on-year fall in net profit to Rs
+                    531.45 crore in the July-Sept quarter.
+                  </p>
+                  <a
+                    href="#"
+                    class="btn btn-link"
+                    data-bs-toggle="modal"
+                    data-bs-target="#newsModal2"
+                    >Next</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#newsCarousel"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#newsCarousel"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+      <p>&copy; 2024 Stock Market Trends. All rights reserved.</p>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      rel="noopener noreferrer"
+    ></script>
+  </body>
+</html>

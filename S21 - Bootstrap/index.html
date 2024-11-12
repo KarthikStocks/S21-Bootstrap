@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Market Trends</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet noopener noreferrer"
+    />
+    <style>
+      /* New color scheme */
+      .navbar {
+        background-color: #28a745; /* Green */
+      }
+
+      .navbar-brand,
+      .navbar-nav .nav-link {
+        color: white !important;
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: #f8f9fa !important;
+      }
+
+      header {
+        background-color: #343a40; /* Dark Gray */
+        color: white;
+        text-align: center;
+        padding: 3rem 0;
+      }
+
+      .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+      }
+
+      .btn-primary {
+        background-color: #007bff;
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: #0056b3;
+      }
+
+      .card-columns {
+        column-count: 4;
+      }
+
+      footer {
+        background-color: #343a40;
+        color: white;
+        text-align: center;
+        padding: 1.5rem 0;
+      }
+
+      .modal-content {
+        background-color: #f8f9fa;
+      }
+
+      .modal-header,
+      .modal-footer {
+        background-color: #28a745;
+        color: white;
+      }
+
+      .btn-info {
+        background-color: cyan;
+        color: black;
+        border: 5px solid cyan;
+      }
+      .btn-info:hover {
+        background-color: #f1f1f1;
+        color: #000;
+      }
+
+      #indexHeading::first-letter {
+        color: tomato;
+        font-size: 4.3rem;
+      }
+    </style>
+  </head>
+  <body style="background-color: snow">
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="news.html">News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="indianMarket.html">Indian Market</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <h1 id="indexHeading">Global Stock Market Trends</h1>
+      <p>Explore the latest stock market data and trends</p>
+      <div class="container mt-5">
+        <!-- Trigger Button for Popover -->
+        <button
+          type="button"
+          class="btn btn-info"
+          data-bs-toggle="popover"
+          data-bs-placement="Left"
+          title="Stock Market Overview"
+          data-bs-content="The stock market is where buyers and sellers trade stocks. Prices fluctuate based on market conditions, company performance, and global economic factors."
+        >
+          <strong>Stock Market Info</strong>
+        </button>
+      </div>
+    </header>
+
+    <!-- Stock List Section -->
+    <section class="container my-5">
+      <div class="row card-columns">
+        <!-- Stock Cards (10 Stocks with dummy data) -->
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Apple Inc. (AAPL)</h5>
+              <p class="card-text">Market Cap: $2.4 Trillion</p>
+              <button
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#stockModal"
+                data-stock="AAPL"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Google (GOOGL)</h5>
+              <p class="card-text">Market Cap: $1.5 Trillion</p>
+              <button
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#stockModal"
+                data-stock="GOOGL"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Amazon (AMZN)</h5>
+              <p class="card-text">Market Cap: $1.7 Trillion</p>
+              <button
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#stockModal"
+                data-stock="AMZN"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Tesla (TSLA)</h5>
+              <p class="card-text">Market Cap: $800 Billion</p>
+              <button
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#stockModal"
+                data-stock="TSLA"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Microsoft (MSFT)</h5>
+              <p class="card-text">Market Cap: $2.3 Trillion</p>
+              <button
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#stockModal"
+                data-stock="MSFT"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Meta Platforms (META)</h5>
+              <p class="card-text">Market Cap: $900 Billion</p>
+              <button
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#stockModal"
+                data-stock="META"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Nvidia (NVDA)</h5>
+              <p class="card-text">Market Cap: $1.1 Trillion</p>
+              <button
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#stockModal"
+                data-stock="NVDA"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Berkshire Hathaway (BRKB)</h5>
+              <p class="card-text">Market Cap: $800 Billion</p>
+              <button
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#stockModal"
+                data-stock="BRKB"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Johnson &amp; Johnson (JNJ)</h5>
+              <p class="card-text">Market Cap: $450 Billion</p>
+              <button
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#stockModal"
+                data-stock="JNJ"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Visa Inc. (V)</h5>
+              <p class="card-text">Market Cap: $500 Billion</p>
+              <button
+                class="btn btn-primary shadow"
+                data-bs-toggle="modal"
+                data-bs-target="#stockModal"
+                data-stock="V"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal for Stock Details -->
+    <div
+      class="modal fade"
+      id="stockModal"
+      tabindex="-1"
+      aria-labelledby="stockModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="stockModalLabel">Stock Details</h5>
+            <button
+              style="background-color: white"
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <h3 id="stock-name">Loading...</h3>
+            <p id="stock-market-cap">Market Cap: Loading...</p>
+            <p id="stock-pe-ratio">P/E Ratio: Loading...</p>
+            <p id="stock-dividend">Dividend Yield: Loading...</p>
+            <p id="stock-high">52 Week High: Loading...</p>
+            <p id="stock-low">52 Week Low: Loading...</p>
+            <p id="stock-history">Stock History: Loading...</p>
+            <p id="stock-outlook">Future Outlook: Loading...</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseOne"
+            aria-expanded="true"
+            aria-controls="panelsStayOpen-collapseOne"
+          >
+            <strong>Global Stock Market Overview</strong>
+          </button>
+        </h2>
+        <div
+          id="panelsStayOpen-collapseOne"
+          class="accordion-collapse collapse show"
+        >
+          <div class="accordion-body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde magnam
+            nemo blanditiis beatae nihil excepturi odit maiores asperiores
+            soluta, fugiat similique corporis molestias culpa omnis veritatis
+            sint voluptatem maxime quod debitis accusamus voluptate? Quaerat ut,
+            at quas sequi doloribus tempore vel nobis. Expedita blanditiis unde
+            molestias, quibusdam numquam eum optio corporis nobis aliquid,
+            temporibus fugiat repudiandae ex sed fugit adipisci vel possimus
+            incidunt nulla deserunt atque? Velit consequatur quidem quo
+            blanditiis iste repellendus atque eius beatae molestias, sapiente
+            totam similique recusandae vitae! Sit tenetur, quasi qui veniam
+            libero eaque sed fugiat hic harum iusto nobis totam, dolorem at
+            accusantium saepe omnis officiis amet modi quam molestias asperiores
+            dolor illo debitis doloribus. Commodi, quibusdam atque unde porro
+            itaque necessitatibus nostrum natus ullam. Officiis officia eum
+            deleniti obcaecati, sint eos blanditiis. Suscipit atque nam nisi
+            omnis corrupti ab, maxime natus iste architecto blanditiis
+            doloribus, odit error! Nam quisquam magnam quos nemo fugit est. Nemo
+            saepe ducimus alias qui ea nobis minus aliquid, quos ipsa ipsam
+            consequatur porro amet est iste officia! Aperiam quo, eligendi
+            accusantium autem eveniet hic est voluptatibus maiores, non, nulla
+            similique! Natus, tenetur? Similique reiciendis modi repellendus?
+            Autem voluptates eos nemo dolore ea nam necessitatibus veniam quos
+            laborum modi.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseTwo"
+            aria-expanded="false"
+            aria-controls="panelsStayOpen-collapseTwo"
+          >
+            <strong>Key Influences on International Markets</strong>
+          </button>
+        </h2>
+        <div
+          id="panelsStayOpen-collapseTwo"
+          class="accordion-collapse collapse"
+        >
+          <div class="accordion-body">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero
+            illum exercitationem excepturi nihil eum, totam soluta nobis ipsa
+            temporibus inventore nulla? Commodi laudantium assumenda id
+            accusamus tempora et dolores asperiores enim, modi, sunt excepturi
+            dicta explicabo velit maxime quo at, pariatur sapiente error illo
+            quam! Quos sed eos ducimus itaque, facilis quia assumenda tempora
+            fugiat aut illum quo natus possimus ullam corporis rem quam dolores
+            id consequuntur dolorem. Aut expedita placeat sed, sequi illum ea
+            necessitatibus voluptatum voluptate itaque mollitia suscipit
+            perferendis esse, autem provident debitis quis eius iusto rerum
+            tempore reprehenderit veniam obcaecati! Repudiandae vitae illo
+            asperiores. Eum nemo necessitatibus provident laudantium incidunt
+            laboriosam ea magnam, ipsam quidem quaerat ducimus. Delectus saepe
+            dolor repellendus consequatur tenetur. Fugit earum eum distinctio
+            totam et porro, saepe error fugiat vero, aut ullam accusantium neque
+            at magni a libero possimus ipsa eaque dolore consectetur nostrum
+            officiis repellendus. Optio nobis quam blanditiis beatae, corporis,
+            reprehenderit magni officia fuga eaque natus ratione impedit
+            consectetur odit veniam consequuntur exercitationem iusto similique
+            voluptatibus. Ducimus, quam! Suscipit nisi recusandae similique,
+            vero quo porro tempora nihil possimus inventore fugiat enim sint
+            culpa! Sapiente ipsam, libero officia, ullam, aliquam dolores fugiat
+            obcaecati voluptatum vero cumque aut consequatur illum nobis labore.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseThree"
+            aria-expanded="false"
+            aria-controls="panelsStayOpen-collapseThree"
+          >
+            <strong>Regional Stock Market Highlights</strong>
+          </button>
+        </h2>
+        <div
+          id="panelsStayOpen-collapseThree"
+          class="accordion-collapse collapse"
+        >
+          <div class="accordion-body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
+            totam aliquid explicabo, alias voluptates sit dolores fugit dicta
+            officiis temporibus, necessitatibus ad ea quo vitae, esse laudantium
+            excepturi omnis? Iure quam numquam at deleniti alias debitis,
+            repellendus dolores iste molestias natus dolorum corporis id error
+            et cupiditate dicta quia adipisci ut aliquam, sit quisquam eveniet
+            facere eos? Reiciendis modi, earum delectus veniam excepturi qui
+            voluptatum aliquam at deleniti natus quasi. Quae ea suscipit
+            laudantium dolorum, officia molestias laborum consectetur deleniti
+            asperiores quibusdam quam, at numquam illo. Deleniti officia non
+            voluptates fuga aspernatur explicabo, nesciunt quae, excepturi dolor
+            veniam minima recusandae ex a. Repellat consectetur non veniam,
+            assumenda modi atque provident placeat laborum amet maiores optio
+            nemo recusandae dignissimos minima repellendus molestias libero.
+            Accusantium doloremque eum excepturi repellendus dolor architecto
+            nesciunt eveniet, inventore debitis consectetur vitae minus officiis
+            facere omnis, est tempora! Optio facere neque est, maiores inventore
+            tempore? Aperiam harum nisi labore maxime natus in, ullam asperiores
+            id a sequi. Voluptatum porro repudiandae quo omnis quos facere
+            soluta ex enim vel aperiam eos esse quia libero quidem, sint iusto,
+            animi aliquid rem neque possimus cumque ipsa. Accusamus quia at
+            dignissimos, ab rerum unde dolorum doloremque ipsa tenetur quasi
+            magnam blanditiis!
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+      <p>&copy; 2024 Stock Market Trends. All rights reserved.</p>
+    </footer>
+
+    <script
+      rel="noopener noreferrer"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <script>
+      // Stock data (for demonstration purposes)
+      const stockData = {
+        AAPL: {
+          name: "Apple Inc. (AAPL)",
+          marketCap: "$2.4 Trillion",
+          peRatio: "28.8",
+          dividend: "0.62%",
+          high: "$182.94",
+          low: "$124.17",
+          history:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Apple has shown tremendous growth...",
+          outlook:
+            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Apple is expected to continue its strong performance due to its innovative products.",
+        },
+        GOOGL: {
+          name: "Google (GOOGL)",
+          marketCap: "$1.5 Trillion",
+          peRatio: "25.6",
+          dividend: "0.71%",
+          high: "$2950.00",
+          low: "$2250.00",
+          history:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Google has diversified into many fields...",
+          outlook:
+            "Google’s advertising and cloud services are expected to grow significantly.",
+        },
+        AMZN: {
+          name: "Amazon (AMZN)",
+          marketCap: "$1.7 Trillion",
+          peRatio: "28.8",
+          dividend: "0.62%",
+          high: "$182.94",
+          low: "$124.17",
+          history:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amazon has shown tremendous growth...",
+          outlook:
+            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amazon is expected to continue its strong performance due to its innovative products.",
+        },
+        TSLA: {
+          name: "Tesla (TSLA)",
+          marketCap: "$800 Billion",
+          peRatio: "28.8",
+          dividend: "0.62%",
+          high: "$182.94",
+          low: "$124.17",
+          history:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tesla has shown tremendous growth...",
+          outlook:
+            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tesla is expected to continue its strong performance due to its innovative products.",
+        },
+        MSFT: {
+          name: "Microsoft (MSFT)",
+          marketCap: "$2.3 Trillion",
+          peRatio: "28.8",
+          dividend: "0.62%",
+          high: "$182.94",
+          low: "$124.17",
+          history:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Microsoft has shown tremendous growth...",
+          outlook:
+            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Microsoft is expected to continue its strong performance due to its innovative products.",
+        },
+        META: {
+          name: "Meta Platforms (META)",
+          marketCap: "$900 Billion",
+          peRatio: "28.8",
+          dividend: "0.62%",
+          high: "$182.94",
+          low: "$124.17",
+          history:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. It has shown tremendous growth...",
+          outlook:
+            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. It is expected to continue its strong performance due to its innovative products.",
+        },
+        NVDA: {
+          name: "Nvidia (NVDA)",
+          marketCap: "$1.1 Trillion",
+          peRatio: "28.8",
+          dividend: "0.62%",
+          high: "$182.94",
+          low: "$124.17",
+          history:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nvidia has shown tremendous growth...",
+          outlook:
+            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nvidia is expected to continue its strong performance due to its innovative products.",
+        },
+        BRKB: {
+          name: "Berkshire Hathaway (BRKB)",
+          marketCap: "$800 Billion",
+          peRatio: "28.8",
+          dividend: "0.62%",
+          high: "$182.94",
+          low: "$124.17",
+          history:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. It has shown tremendous growth...",
+          outlook:
+            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. It is expected to continue its strong performance due to its innovative products.",
+        },
+        JNJ: {
+          name: "Johnson & Johnson (JNJ)",
+          marketCap: "$450 Billion",
+          peRatio: "28.8",
+          dividend: "0.62%",
+          high: "$182.94",
+          low: "$124.17",
+          history:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. JNJ has shown tremendous growth...",
+          outlook:
+            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. JNJ is expected to continue its strong performance due to its innovative products.",
+        },
+        V: {
+          name: "Visa Inc. (V)",
+          marketCap: "$500 Billion",
+          peRatio: "28.8",
+          dividend: "0.62%",
+          high: "$182.94",
+          low: "$124.17",
+          history:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Visa has shown tremendous growth...",
+          outlook:
+            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Visa is expected to continue its strong performance due to its innovative products.",
+        },
+
+        // Add data for other stocks here...
+      };
+
+      // Event listener for opening the modal and displaying data
+      document
+        .querySelectorAll('[data-bs-toggle="modal"]')
+        .forEach((button) => {
+          button.addEventListener("click", function () {
+            const stock = this.getAttribute("data-stock");
+            const data = stockData[stock];
+
+            // Set modal content
+            document.getElementById("stock-name").textContent = data.name;
+            document.getElementById(
+              "stock-market-cap"
+            ).textContent = `Market Cap: ${data.marketCap}`;
+            document.getElementById(
+              "stock-pe-ratio"
+            ).textContent = `P/E Ratio: ${data.peRatio}`;
+            document.getElementById(
+              "stock-dividend"
+            ).textContent = `Dividend Yield: ${data.dividend}`;
+            document.getElementById(
+              "stock-high"
+            ).textContent = `52 Week High: ${data.high}`;
+            document.getElementById(
+              "stock-low"
+            ).textContent = `52 Week Low: ${data.low}`;
+            document.getElementById(
+              "stock-history"
+            ).textContent = `Stock History: ${data.history}`;
+            document.getElementById(
+              "stock-outlook"
+            ).textContent = `Future Outlook: ${data.outlook}`;
+          });
+        });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var popoverTriggerList = document.querySelectorAll(
+          '[data-bs-toggle="popover"]'
+        );
+        var popoverList = [...popoverTriggerList].map(
+          (popoverTriggerEl) => new bootstrap.Popover(popoverTriggerEl)
+        );
+      });
+    </script>
+  </body>
+</html>
